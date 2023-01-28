@@ -1,5 +1,9 @@
 {
     "cSpell.words": ["SOURCEDEPENDENCY"],
     "editor.formatOnSave": true,
-    "clangd.detectExtensionConflicts": false // 프로젝트별 설정인 경우 필요
+    "clangd.detectExtensionConflicts": false,
+    "files.associations": {
+        "*.anim": "json",
+        "array": "cpp"
+    } // 프로젝트별 설정인 경우 필요
 }

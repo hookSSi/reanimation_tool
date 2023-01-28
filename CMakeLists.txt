@@ -25,7 +25,7 @@ include_directories("imgui/backends")
 include_directories("RuntimeCompiledCPlusPlus/Aurora/RuntimeObjectSystem")
 include_directories("RuntimeCompiledCPlusPlus/Aurora/RuntimeCompiler")
 include_directories("imgui-node-editor")
-include_directories("reanimation-ui")
+include_directories("Nuguri/src")
 include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 set( GLFW_BUILD_EXAMPLES OFF CACHE BOOL  "GLFW lib only" )
@@ -50,6 +50,7 @@ if( WIN32 )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup" )
 endif()
 
+
 set( REANIMATION-TOOL-SRC
     # imgui
      imgui/imgui.h
@@ -66,8 +67,8 @@ set( REANIMATION-TOOL-SRC
      imgui/backends/imgui_impl_opengl2.cpp
 
     # my app
-     reanimation-ui/reanimation_ui.h
-     reanimation-ui/reanimation_ui.cpp
+     Nuguri/src/Nuguri.h
+     Nuguri/src/Nuguri.cpp
 
     # template
      main.cpp

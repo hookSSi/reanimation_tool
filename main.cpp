@@ -77,7 +77,6 @@ int main(int argc, const char* argv[]) {
     // Setup Dear ImGui binding
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-
     ImGui_ImplGlfw_InitForOpenGL(window, false);
     ImGui_ImplOpenGL2_Init();
 

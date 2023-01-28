@@ -8,7 +8,7 @@
 
 #include <imgui.h>
 
-#include <reanimation_ui.h>
+#include <Nuguri.h>
 
 // add imgui source dependencies
 // an alternative is to put imgui into a library and use RuntimeLinkLibrary
@@ -33,7 +33,7 @@ enum InterfaceIDEnumConsoleExample {
 
 struct RCCppMainLoop : RCCppMainLoopI,
                        TInterface<IID_IRCCPP_MAIN_LOOP, IObject> {
-    bool show_demo_window = true;
+    bool show_main_window = true;
 
     // data for compiling window
     static constexpr double SHOW_AFTER_COMPILE_TIME = 3.0f;
@@ -58,7 +58,7 @@ struct RCCppMainLoop : RCCppMainLoopI,
     }
 
     void Serialize(ISimpleSerializer* pSerializer) override {
-        SERIALIZE(show_demo_window);
+        SERIALIZE(show_main_window);
         SERIALIZE(compileStartTime);
         SERIALIZE(compileEndTime);
     }
@@ -67,21 +67,14 @@ struct RCCppMainLoop : RCCppMainLoopI,
         ImGui::SetCurrentContext(
             PerModuleInterface::g_pSystemTable->pImContext);
 
-        ImGui::SetNextWindowPos(ImVec2(50, 400), ImGuiCond_Appearing);
-        ImGui::SetNextWindowSize(ImVec2(0, 0), ImGuiCond_Always);
-        ImGui::Begin("RCCppMainLoop Window");
-        ImGui::Text("You can change Window's code at runtime");
-        ImGui::End();
-
-        // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-        // if (show_demo_window) {
-        //     ImGui::ShowDemoWindow(&show_demo_window);
-        // }
-
         // This is start
-        if (show_demo_window) {
-            ReanimationUI::Init(&show_demo_window);
+        if (show_main_window) {
+            Nuguri::Show(&show_main_window);
         }
+
+        // if (show_main_window) {
+        //     ImGui::ShowDemoWindow(&show_main_window);
+        // }
 
         // Show compiling info
         double time = ImGui::GetTime();
